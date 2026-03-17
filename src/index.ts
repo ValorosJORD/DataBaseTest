@@ -16,6 +16,11 @@ app.use(express.static('public', { extensions: ['html'] }));
 // -- Routes --------------------------------------------------
 // Register your routes below this line
 
+import { getUsers, registerUser } from './controllers/users.js';
+
+app.get('/users', getUsers);
+app.post('/users', registerUser);
+
 app.listen(process.env.PORT, () => {
   console.log(`Server listening on http://localhost:${process.env.PORT}`);
 });
